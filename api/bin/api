@@ -4,9 +4,11 @@
 
 require(__dirname + '/../bootstrap');
 
-var app = require('../app')
+var di = global.di
+    , app = require('../app')
     , debug = require('debug')('api:server')
     , http = require('http')
+    , async = require('async')
     , port = normalizePort(process.env.PORT || '3000')
     ;
 
@@ -14,9 +16,18 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+// server setup
+async.waterfall([
+    function (next) {
+        di.get('mongodb').connect(next);
+    },
+    function (next) {
+        server.listen(port);
+        server.on('error', onError);
+        server.on('listening', onListening);
+        next();
+    }
+]);
 
 function normalizePort(val) {
     var port = parseInt(val, 10);

@@ -5,12 +5,15 @@ var express = require('express')
     , logger = require('morgan')
     , bodyParser = require('body-parser')
     , app = express()
+    , di = global.di
+    , security = di.get('security')
+    , secureMiddleware = security.secureMiddleware.bind(security)
     ;
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 
-app.use('/api/v1/trades/messages', require(__dirname + '/routes/tradesMessages'));
+app.use('/api/v1/trades/messages', secureMiddleware, require(__dirname + '/routes/tradesMessages'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -24,7 +27,7 @@ app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.send({
         message: err.message,
-        error: app.get('env') === 'development' ? err : {}
+        error: app.get('env') === 'development' ? err.stack : {}
     });
 });
 

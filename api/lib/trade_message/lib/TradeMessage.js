@@ -26,6 +26,4 @@ TradeMessage.prototype.create = function (params, cb) {
     cb(null, {test: 1});
 };
 
-
-
 module.exports = TradeMessage;
