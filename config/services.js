@@ -9,7 +9,8 @@ module.exports = {
         './sections/rabbit_mq.js',
         './sections/redis.js',
         './sections/security.js',
-        './sections/trade_message.js'
+        './sections/trade_message.js',
+        './sections/validator'
     ],
     parameters: {
         libdir: __dirname + '/../lib'
@@ -34,6 +35,10 @@ module.exports = {
         trade_message: {
             service: '%libdir%/trade_message',
             arguments: ['%trade_message%', '@rabbit_mq']
+        },
+        validator: {
+            service: '%libdir%/validator',
+            arguments: ['%validator%']
         }
     }
 };
