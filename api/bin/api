@@ -2,6 +2,8 @@
 
 'use strict';
 
+require(__dirname + '/../bootstrap');
+
 var app = require('../app')
     , debug = require('debug')('api:server')
     , http = require('http')
