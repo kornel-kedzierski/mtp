@@ -13,6 +13,9 @@ async.waterfall([
     },
     function (next) {
         di.get('rabbit_mq').connect(next);
+    },
+    function (next) {
+        di.get('trade_processor').init(next);
     }
 ], function (err) {
     if (err) {
