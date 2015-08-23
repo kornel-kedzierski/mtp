@@ -20,7 +20,11 @@ var MongoDb = function (config) {
  */
 MongoDb.prototype.connect = function (cb) {
     this.db = mongoose.connect(this.config.connectionUri, this.config.connectionOptions);
-    this.db.connection.once('connected', cb);
+    this.db.connection.once('connected', function () {
+        debug('connected');
+        cb();
+    });
+    this.db.connection.once('error', cb);
 };
 
 MongoDb.prototype.disconnect = function () {

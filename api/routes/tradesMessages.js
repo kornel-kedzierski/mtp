@@ -2,6 +2,7 @@
 
 var express = require('express')
     , router = express.Router()
+    , debug = require('debug')('route /api/v1/trades/messages')
     , di = global.di
     ;
 
@@ -13,7 +14,7 @@ router.post('/', function (req, res, next) {
             return next(err);
         }
 
-        res.send(result, 202); // Accepted for processing
+        res.status(202).send(result); // Accepted for processing
     });
 });
 

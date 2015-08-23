@@ -1,5 +1,7 @@
 'use strict';
 
+var debug = require('debug')('TradeMessage');
+
 /**
  * @param {object} config
  * @param {RabbitMq} publisher
@@ -23,7 +25,17 @@ var TradeMessage = function (config, publisher) {
  * @param {function} cb
  */
 TradeMessage.prototype.create = function (params, cb) {
-    cb(null, {test: 1});
+    // todo: validation
+
+    debug('create', params);
+
+    this.publisher.publish({queueName: this.config.queueName, data: params}, function (err) {
+        if (err) {
+            return cb(err);
+        }
+
+        cb(null, {messageAccepted: true});
+    });
 };
 
 module.exports = TradeMessage;

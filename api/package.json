@@ -7,10 +7,11 @@
     "test": "jasmine-node --captureExceptions spec"
   },
   "dependencies": {
+    "amqp": "~0.2.4",
     "async": "~1.4.2",
     "body-parser": "~1.13.2",
     "debug": "~2.2.0",
-    "dependency-injection": "~2.3.3",
+    "dependency-injection": "git+ssh://git@github.com:kornel-kedzierski/node-dependency-injection.git",
     "express": "~4.13.1",
     "express-validator": "~2.15.1",
     "lodash": "~3.10.1",
