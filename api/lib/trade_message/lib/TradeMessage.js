@@ -29,7 +29,13 @@ TradeMessage.prototype.create = function (params, cb) {
 
     debug('create', params);
 
-    this.publisher.publish({queueName: this.config.queueName, data: params}, function (err) {
+    this.publisher.publish({
+        queueName: this.config.queueName,
+        data: params,
+        options: {
+            deliveryMode: 2
+        }
+    }, function (err) {
         if (err) {
             return cb(err);
         }
