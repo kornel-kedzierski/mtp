@@ -2,3 +2,21 @@
 
 'use strict';
 
+var di = require(__dirname + '/../bootstrap')('processor')
+    , async = require('async')
+;
+
+// server setup
+async.waterfall([
+    function (next) {
+        di.get('mongodb').connect(next);
+    },
+    function (next) {
+        di.get('rabbit_mq').connect(next);
+    }
+], function (err) {
+    if (err) {
+        console.error(err.message);
+        process.exit(1);
+    }
+});
