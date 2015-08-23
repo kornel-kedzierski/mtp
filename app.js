@@ -15,8 +15,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 
 app.use('/api/v1/trades/messages'
+    , secureMiddleware
     , validator.middleware('TradeMessage')
-    /*,secureMiddleware */
     , require(__dirname + '/routes/tradesMessages')
 );
 
