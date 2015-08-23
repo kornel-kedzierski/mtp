@@ -5,19 +5,12 @@ var express = require('express')
     , bodyParser = require('body-parser')
     , app = express()
     , di = global.di
-    , security = di.get('security')
-    , validator = di.get('validator')
-    , secureMiddleware = security.secureMiddleware.bind(security)
     ;
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 
-app.use('/api/v1/trades/messages'
-    , secureMiddleware
-    , validator.middleware('TradeMessage')
-    , require(__dirname + '/routes/tradesMessages')
-);
+app.use(express.static('public'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
