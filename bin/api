@@ -2,9 +2,7 @@
 
 'use strict';
 
-require(__dirname + '/../bootstrap');
-
-var di = global.di
+var di = require(__dirname + '/../bootstrap')('api')
     , app = require('../app')
     , debug = require('debug')('api:server')
     , http = require('http')

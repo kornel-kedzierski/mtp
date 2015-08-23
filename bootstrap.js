@@ -1,12 +1,16 @@
 'use strict';
 
+var util = require('util');
+
 try {
     require(__dirname + '/setEnv');
 }
 catch (err) {
 }
 
-var DIFactory = require('dependency-injection/DIFactory');
-var factory = new DIFactory(__dirname + '/config/services.js');
+module.exports = function (appName) {
+    var DIFactory = require('dependency-injection/DIFactory');
+    var factory = new DIFactory(util.format(__dirname + '/config/%s_services.js', appName));
 
-var di = factory.create();
+    return factory.create();
+};

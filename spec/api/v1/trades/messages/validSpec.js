@@ -1,11 +1,9 @@
 'use strict';
 
-require(__dirname + '/../../../../../bootstrap');
-
-var request = require('request').defaults({timeout: 5000})
+var di = require(__dirname + '/../../../../../bootstrap')('api')
+    , request = require('request').defaults({timeout: 5000})
     , debug = require('debug')('POST /api/v1/trades/messages')
     , crypto = require('crypto')
-    , di = global.di
     , security = di.get('security')
     ;
 

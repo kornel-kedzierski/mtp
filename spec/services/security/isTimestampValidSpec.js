@@ -1,8 +1,7 @@
 'use strict';
 
-require(__dirname + '/../../../bootstrap');
-
-var debug = require('debug')('services/security/timestamp')
+var di = require(__dirname + '/../../../bootstrap')('api')
+    , debug = require('debug')('services/security/timestamp')
     ;
 
 describe('services/security/timestamp', function () {

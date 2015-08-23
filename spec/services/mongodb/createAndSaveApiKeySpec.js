@@ -1,8 +1,7 @@
 'use strict';
 
-require(__dirname + '/../../../bootstrap');
-
-var debug = require('debug')('services/mongodb/getModel')
+var di = require(__dirname + '/../../../bootstrap')('api')
+    , debug = require('debug')('services/mongodb/getModel')
     , async = require('async')
     , crypto = require('crypto')
     ;

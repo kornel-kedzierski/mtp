@@ -1,8 +1,7 @@
 'use strict';
 
-require(__dirname + '/../../../bootstrap');
-
-var debug = require('debug')('services/trade_message/publish')
+var di = require(__dirname + '/../../../bootstrap')('api')
+    , debug = require('debug')('services/trade_message/publish')
     ;
 
 describe('services/trade_message/publish', function () {

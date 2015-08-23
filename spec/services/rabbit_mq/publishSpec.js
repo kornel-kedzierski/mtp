@@ -1,8 +1,7 @@
 'use strict';
 
-require(__dirname + '/../../../bootstrap');
-
-var debug = require('debug')('services/rabbitmq/publish')
+var di = require(__dirname + '/../../../bootstrap')('api')
+    , debug = require('debug')('services/rabbitmq/publish')
     ;
 
 describe('services/rabbitmq/publish', function () {
