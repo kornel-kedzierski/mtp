@@ -16,7 +16,7 @@ describe('services/trade_message/publish', function () {
                 currencyTo: _.sample(['GBP', 'AUD']),
                 amountSell: _.random(10, 1000),
                 amountBuy:  _.random(10, 1000),
-                rate: 0.7471,
+                rate: _.random(1, 2, true).toFixed(3),
                 timePlaced: new Date().toISOString(),
                 originatingCountry: _.sample(['FR', 'DE', 'US', 'PL'])
             }, function () {

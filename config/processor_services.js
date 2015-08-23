@@ -5,6 +5,7 @@ module.exports = {
         expose: true
     },
     includes: [
+        './sections/candlestick_publisher.js',
         './sections/mongodb.js',
         './sections/rabbit_mq.js',
         './sections/trade_processor.js',
@@ -14,6 +15,10 @@ module.exports = {
         libdir: __dirname + '/../lib'
     },
     services: {
+        candlestick_publisher: {
+            service: '%libdir%/candlestick_publisher',
+            arguments: ['%candlestick_publisher%', '@rabbit_mq', '@mongodb']
+        },
         mongodb: {
             service: '%libdir%/mongodb',
             arguments: ['%mongodb%']

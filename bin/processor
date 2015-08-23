@@ -22,4 +22,7 @@ async.waterfall([
         console.error(err.message);
         process.exit(1);
     }
+
+    di.get('candlestick_publisher').init();
 });
+
