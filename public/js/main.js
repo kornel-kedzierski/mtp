@@ -1,4 +1,4 @@
-//'use strict';
+'use strict';
 
 $(function () {
     console.log("ready!");
@@ -23,8 +23,8 @@ $(function () {
             exportEnabled: true,
             axisY: {
                 includeZero: false,
-                prefix: "$",
-                title: "Prices"
+                prefix: "",
+                title: "Rates"
             },
             axisX: {
                 interval: 1,

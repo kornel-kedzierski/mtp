@@ -56,7 +56,8 @@ Candlestick.statics.append = function (data, cb) {
 };
 
 Candlestick.statics.normalizeDate = function (date) {
-    return parseInt(new Date(date).getTime() / 1000 / 60) * 60;
+    // group candlesticks every 5s
+    return parseInt(new Date(date).getTime() / 1000 / 5) * 5;
 };
 
 module.exports = mongoose.model('Candlestick', Candlestick);
