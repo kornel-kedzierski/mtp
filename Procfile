@@ -1,1 +1,1 @@
-web: node $MAIN_SCRIPT
+$PROCESS_TYPE: node $MAIN_SCRIPT
