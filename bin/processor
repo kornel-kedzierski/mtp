@@ -24,5 +24,10 @@ async.waterfall([
     }
 
     di.get('candlestick_publisher').init();
+
+    require('http').createServer(function (req, res) {
+        res.writeHead(200, {'Content-Type': 'text/plain'});
+        res.end('STATUS:OK\n');
+    }).listen(process.env.PORT || 3002);
 });
 

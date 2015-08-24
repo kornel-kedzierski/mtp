@@ -3,7 +3,7 @@
 var util = require('util');
 
 try {
-    require(__dirname + '/setEnv');
+    require(__dirname + '/setEnvironment');
 }
 catch (err) {
 }
