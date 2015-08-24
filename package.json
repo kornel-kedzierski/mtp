@@ -11,7 +11,7 @@
     "async": "~1.4.2",
     "body-parser": "~1.13.2",
     "debug": "~2.2.0",
-    "dependency-injection": "git+ssh://git@github.com:kornel-kedzierski/node-dependency-injection.git",
+    "dependency-injection": "git+https://git@github.com:kornel-kedzierski/node-dependency-injection.git",
     "express": "~4.13.1",
     "express-validator": "~2.15.1",
     "lodash": "~3.10.1",
