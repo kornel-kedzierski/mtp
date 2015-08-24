@@ -6,6 +6,8 @@ var di = require(__dirname + '/../bootstrap')('processor')
     , async = require('async')
 ;
 
+console.log('ENV KEYS:', require('lodash').keys(process.env));
+
 // server setup
 async.waterfall([
     function (next) {
