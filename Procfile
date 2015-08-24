@@ -1,1 +1,1 @@
-$PROCFILE
+web: node $MAIN_SCRIPT
