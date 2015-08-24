@@ -1,7 +1,7 @@
 'use strict';
 
 var url = require('url')
-    , config = url.parse(process.env.REDIS_URI)
+    , config = url.parse(process.env.REDIS_URI || process.env.REDISCLOUD_URL)
     ;
 
 module.exports = {
